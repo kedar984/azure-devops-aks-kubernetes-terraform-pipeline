@@ -13,11 +13,11 @@ variable "linux_admin" {
   type = string
   description = "Linux username"
 }
-variable "linux_admin_password" {
-  default = "C:/Users/kedar/.ssh/aks-prod-sshkeys-terraform/askprodsshkey.pub"
+ variable "linux_admin_password" {
+#   # default = "C:/Users/kedar/.ssh/aks-prod-sshkeys-terraform/askprodsshkey.pub"
   type = string
-  description = "Linux admin password"
-}
+   description = "Linux admin password"
+ }
 variable "window_admin_user" {
   default = "azureuser"
   type = string
@@ -28,4 +28,9 @@ variable "windows_admin_password" {
   type = string
   description = "this is windows admin password"
   
+}
+variable "environment" {
+  type = string
+  description = "THis variable the environnment"
+  # default = "dev"
 }

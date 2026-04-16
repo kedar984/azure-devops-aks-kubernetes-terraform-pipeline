@@ -31,9 +31,9 @@ output "linux-node-pool-name" {
 output "windows-node-pool-name" {
   value = azurerm_kubernetes_cluster_node_pool.windows-node-pool.name
 }
-output "storage-account-name" {
-  value = data.azurerm_storage_account.storage-account.name
-}
+# output "storage-account-name" {
+#   value = data.azurerm_storage_account.storage-account.name
+# }
 output "storage-account-tier" {
   value = data.azurerm_storage_account.storage-account.account_tier
 }
