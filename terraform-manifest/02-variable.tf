@@ -14,7 +14,7 @@ variable "linux_admin" {
   description = "Linux username"
 }
  variable "linux_admin_password" {
-#   # default = "C:/Users/kedar/.ssh/aks-prod-sshkeys-terraform/askprodsshkey.pub"
+  # default = "/Users/mac/.ssh/aks-prod-sshkeys/aksprodsshkey.pub"
   type = string
    description = "Linux admin password"
  }
