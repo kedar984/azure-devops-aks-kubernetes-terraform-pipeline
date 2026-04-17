@@ -96,7 +96,7 @@ stages:
   
       - deployment: DeployQAAKSCluster
         dependsOn: DeployDevAKSCluster
-        displayName: DeployDevAKSCluster
+        displayName: DeployQAAKSCluster
         pool:
          vmImage: 'ubuntu-latest'
         environment: $(QA_ENVIRONMENT) 
