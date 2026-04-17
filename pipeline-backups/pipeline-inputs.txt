@@ -1,8 +1,8 @@
 --------------------------------------------
 # Terraform State Storage Azure RM
-Resource Group: terraform-storage-rg
-Storage Account: terraformstatexlrwdrzs
-Container: tfstatefiles
+Resource Group: storageaccount
+Storage Account: mvpstorage1244
+Container: tfstatefile
 
 # Manifests Folder
 terraform-manifests
@@ -23,7 +23,7 @@ aks-$(DEV_ENVIRONMENT).tfstate
 $(Pipeline.Workspace)/terraform-manifests-out
 
 # Dev Command Arguments for Terraform Plan
--var ssh_public_key=$(sshkey.secureFilePath) 
+-var linux_admin_password=$(sshkey.secureFilePath) 
 -var environment=$(DEV_ENVIRONMENT) 
 -out $(Pipeline.Workspace)/terraform-manifests-out/$(DEV_ENVIRONMENT)-$(Build.BuildId).out
 
