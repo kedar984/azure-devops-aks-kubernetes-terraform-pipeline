@@ -1,0 +1,43 @@
+
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: TerraformValidate
+    jobs:
+      -  job: TerraformValidateJob
+         continueOnError: false
+         steps:
+         - task: PublishPipelineArtifact@1
+           displayName: Publish Artifact
+           inputs:
+             targetPath: '$(System.DefaultWorkingDirectory)/terraform-manifest'
+             artifact: 'terraform-manifest-out'
+             publishLocation: 'pipeline'
+         - task: TerraformInstaller@1
+           displayName: Terraform Install
+           inputs:
+             terraformVersion: '1.14.8'
+         - task: TerraformTask@5
+           displayName: Terraform Init
+           inputs:
+             provider: 'azurerm'
+             command: 'init'
+             workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-manifest'
+             backendServiceArm: 'terraform-aks-azurerm-svc-con'
+             backendAzureRmResourceGroupName: 'storageaccount'
+             backendAzureRmStorageAccountName: 'mvpstorage1244'
+             backendAzureRmContainerName: 'tfstatefile'
+             backendAzureRmKey: 'aks-base.tfstate'
+         - task: TerraformTask@5
+           displayName: Terraform Validate
+           inputs:
+             provider: 'azurerm'
+             command: 'validate'
+             workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-manifest'
+        
+         
