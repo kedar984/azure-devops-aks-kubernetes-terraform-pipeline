@@ -50,7 +50,7 @@ oms_agent {
   linux_profile {
     admin_username = "${var.linux_admin}"
     ssh_key {
-      key_data = var.linux_admin_password
+      key_data = var.ssh_public_key
     }
   }
   windows_profile {

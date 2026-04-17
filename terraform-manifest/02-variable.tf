@@ -13,10 +13,10 @@ variable "linux_admin" {
   type = string
   description = "Linux username"
 }
- variable "linux_admin_password" {
+ variable "ssh_public_key" {
   # default = "/Users/mac/.ssh/aks-prod-sshkeys/aksprodsshkey.pub"
   type = string
-   description = "Linux admin password"
+   description = "SSH public key for Linux admin"
  }
 variable "window_admin_user" {
   default = "azureuser"
