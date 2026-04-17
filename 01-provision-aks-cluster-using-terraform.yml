@@ -56,7 +56,11 @@ stages:
          runOnce:
            deploy:
              steps:
+               - task: TerraformInstaller@1
+                 inputs:
+                   terraformVersion: '1.14.8'
                - task: DownloadSecureFile@1
+                 displayName: Download SSH Key
                  inputs:
                    secureFile: 'aks-terraform-devops-ssh-key-ububtu.pub'
                - task: TerraformTask@5
